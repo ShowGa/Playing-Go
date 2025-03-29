@@ -1,6 +1,4 @@
-type Stone = "black" | "white";
-
-type Point = [number, number];
+import { Stone, Point } from "../types/type";
 
 export class GoGame {
   private size: number;
