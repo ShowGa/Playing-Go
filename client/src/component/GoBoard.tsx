@@ -30,8 +30,6 @@ const GoBoard: React.FC<GoBoardProps> = ({
     const cellSize = rendererRef.current.cellSize;
     const boardSize = rendererRef.current.boardSize;
 
-    let turn = currentPlayer; // find the current player
-
     // calculate the position
     const [row, col] = getXYFromMouseEvent(
       e,
