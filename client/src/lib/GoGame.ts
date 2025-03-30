@@ -11,6 +11,18 @@ export class GoGame {
     this.currentPlayer = "black";
   }
 
+  public getSize(): number {
+    return this.size;
+  }
+
+  public getCurrentPlayer(): Stone {
+    return this.currentPlayer;
+  }
+
+  public getBoard() {
+    return this.board;
+  }
+
   public restartGame() {
     this.clearBoard();
 
