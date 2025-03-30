@@ -48,7 +48,7 @@ const GoBoard: React.FC<GoBoardProps> = ({
     if (!result) return;
 
     // render
-    rendererRef.current.drawStone(row, col, turn);
+    rendererRef.current.drawAllTheStones();
 
     // draw hightlight on the last drop stone
     rendererRef.current.drawHighlight(row, col);

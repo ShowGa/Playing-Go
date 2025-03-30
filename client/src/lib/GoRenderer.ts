@@ -147,6 +147,8 @@ export class GoRenderer {
   }
 
   drawAllTheStones(): void {
+    this.cleanAllTheStones();
+
     for (let row = 0; row < this.boardSize; row++) {
       for (let col = 0; col < this.boardSize; col++) {
         const stone = this.boardState[row][col];
@@ -155,6 +157,14 @@ export class GoRenderer {
         }
       }
     }
+  }
+  cleanAllTheStones(): void {
+    this.ctxStone.clearRect(
+      0,
+      0,
+      this.canvasBoard.width,
+      this.canvasBoard.height
+    );
   }
 
   drawPreviewStone(row: number, col: number, color: Stone): void {

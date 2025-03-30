@@ -2,6 +2,7 @@ import { useState } from "react";
 import GoBoard from "../component/GoBoard";
 import { GoGame } from "../lib/GoGame";
 import { Point, Stone } from "../types/type";
+import { requestFormReset } from "react-dom";
 
 const Battle = () => {
   const [goGame] = useState<GoGame>(new GoGame(19));
@@ -17,6 +18,8 @@ const Battle = () => {
     // check is your turn later
 
     const result = goGame.move(point);
+
+    if (!result) return false;
 
     setCurrentPlayer(goGame.getCurrentPlayer());
 
