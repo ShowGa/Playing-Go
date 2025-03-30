@@ -23,13 +23,11 @@ export class GoGame {
     );
   }
 
-  public move(point: Point) {
+  public move(point: Point): boolean {
     const [x, y] = point;
 
     // check if the point is already occupied
-    if (this.board[x][y] !== null) {
-      return false;
-    }
+    if (this.board[x][y] !== null) return false;
 
     // update the board (make a move)
     this.board[x][y] = this.currentPlayer;
@@ -40,7 +38,9 @@ export class GoGame {
     // check if the move is suicidal
     const group = this.getGroup(point, this.currentPlayer);
     if (this.getLiberties(group) === 0 && !isStoneRemoved) {
+      // remove the previous move
       this.board[x][y] = null;
+      return false;
     }
     // switch player
     this.currentPlayer = this.currentPlayer === "black" ? "white" : "black";
